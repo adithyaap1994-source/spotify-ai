@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>spotify-ai</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="player-panel" aria-label="Now playing">
+        <div class="tab-view active spotify-view" id="home-view">
+          <div class="spotify-chrome home-chrome" aria-label="Spotify style home">
+            <aside class="library-rail" aria-label="Your Library">
+              <div class="spotify-logo" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm4.58 14.42a.75.75 0 0 1-1.03.25c-2.82-1.73-6.37-2.12-10.55-1.16a.75.75 0 0 1-.34-1.46c4.58-1.04 8.51-.58 11.67 1.36.35.21.46.67.25 1.01Zm1.38-3.06a.9.9 0 0 1-1.24.3c-3.23-1.98-8.15-2.55-11.96-1.39a.9.9 0 1 1-.52-1.72c4.33-1.31 9.74-.68 13.42 1.58.42.26.55.81.3 1.23Zm.12-3.19c-3.87-2.3-10.25-2.51-13.95-1.39a1.08 1.08 0 1 1-.63-2.07c4.25-1.29 11.26-1.04 15.68 1.58a1.08 1.08 0 1 1-1.1 1.88Z"/></svg>
+              </div>
+              <div class="library-header">
+                <h2>Your Library</h2>
+                <button type="button">Create</button>
+              </div>
+              <section class="library-promo import-card">
+                <strong>Import your music from other apps</strong>
+                <span>Bring your playlists, songs and artists.</span>
+                <button type="button">Import library</button>
+              </section>
+              <section class="library-promo">
+                <strong>Create your first playlist</strong>
+                <span>It is easy, we will help you</span>
+                <button type="button">Create playlist</button>
+              </section>
+              <section class="library-promo">
+                <strong>Let us find some podcasts to follow</strong>
+                <span>We will keep you updated on new episodes</span>
+                <button type="button">Browse podcasts</button>
+              </section>
+            </aside>
+
+            <section class="spotify-main home-main" aria-label="Spotify home">
+              <div class="spotify-nav home-nav">
+                <button class="home-button active" data-tab="home" type="button" aria-label="Home">
+                  <svg viewBox="0 0 24 24"><path d="m12 3 9 8h-3v9h-5v-6h-2v6H6v-9H3l9-8Z"/></svg>
+                </button>
+                <form class="search-pill" id="home-search-form" role="search">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 19.6-5.3-5.3a7.4 7.4 0 1 0-1.4 1.4l5.3 5.3 1.4-1.4ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"/></svg>
+                  <input id="home-search-input" type="search" autocomplete="off" placeholder="What do you want to play?" aria-label="What do you want to play?" />
+                  <button type="submit" aria-label="Ask Copilot">Ask</button>
+                </form>
+                <button class="premium-button" type="button">Premium</button>
+                <nav class="tabs" aria-label="Primary">
+                  <button class="tab" data-tab="now" type="button">Now</button>
+                  <button class="tab" data-tab="discovery" type="button">Copilot</button>
+                </nav>
+                <button class="account-button" type="button" aria-label="Account">
+                  <span id="account-initial">D</span>
+                  <strong id="account-name">Guest</strong>
+                </button>
+              </div>
+
+              <div class="home-content">
+                <div class="home-filter-row" aria-label="Home filters">
+                  <button type="button" class="active">All</button>
+                  <button type="button">Music</button>
+                  <button type="button">Podcasts</button>
+                </div>
+
+                <div class="quick-grid" aria-label="Quick picks">
+                  <button type="button" data-tab="now">
+                    <span class="quick-cover ehsaas-cover"></span>
+                    <strong>Ehsaas</strong>
+                  </button>
+                  <button type="button" data-tab="now">
+                    <span class="quick-cover hoor-cover"></span>
+                    <strong>Hoor | Coke Studio Bharat</strong>
+                  </button>
+                </div>
+
+                <section class="getting-started" aria-label="Getting started">
+                  <div class="home-section-heading">
+                    <h2>Getting started</h2>
+                    <div><button type="button" aria-label="Previous">‹</button><button type="button" aria-label="Next">›</button></div>
+                  </div>
+                  <article class="video-tip-card">
+                    <div>
+                      <span>3. Watch a video</span>
+                      <p>Play videos from your favourite artists and creators.</p>
+                      <button type="button">Browse videos</button>
+                      <strong>Show more tips</strong>
+                    </div>
+                    <div class="video-thumb" aria-hidden="true">
+                      <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7L8 5Z"/></svg>
+                    </div>
+                  </article>
+                </section>
+
+                <section class="recommend-row" aria-label="Recommended for today">
+                  <div class="home-section-heading">
+                    <div>
+                      <p>Inspired by your recent activity</p>
+                      <h2>Recommended for today</h2>
+                    </div>
+                    <button type="button">Show all</button>
+                  </div>
+                  <div class="album-row">
+                    <article><span class="album-cover cover-blue"></span><strong>Blue Hour Map</strong><p>Nia Sol</p></article>
+                    <article><span class="album-cover cover-warm"></span><strong>Soft Landing</strong><p>Mira Vale</p></article>
+                    <article><span class="album-cover cover-mono"></span><strong>Signal Drift</strong><p>North Arcade</p></article>
+                    <article><span class="album-cover cover-dark"></span><strong>Late Window</strong><p>The Pale Static</p></article>
+                  </div>
+                </section>
+              </div>
+            </section>
+
+            <aside class="context-rail home-context-rail" aria-label="Now playing context">
+              <div class="home-now-card">
+                <h2>Guzaara (From "Baaghi 4")</h2>
+                <div class="home-now-art"></div>
+                <div>
+                  <strong>Guzaara (From "Baaghi 4")</strong>
+                  <p>Parampara Tandon, Kumaar, Bunty Bains</p>
+                </div>
+              </div>
+              <section class="context-card">
+                <div class="credits-heading"><h3>Credits</h3><button type="button">Show all</button></div>
+                <p>Josh Brar</p>
+                <p>Parampara Tandon</p>
+              </section>
+            </aside>
+
+            <footer class="bottom-player" aria-label="Current playback">
+              <div class="mini-track">
+                <div class="static-mini-art"></div>
+                <div>
+                  <strong>Guzaara (From "Baaghi 4")</strong>
+                  <span>Parampara Tandon, Kumaar, Bunty Bains</span>
+                </div>
+              </div>
+              <section class="timeline" aria-label="Playback progress">
+                <div class="home-transport" aria-label="Home playback controls">
+                  <button type="button" id="home-previous-button" aria-label="Previous track">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h2v14H6V5Zm3.5 7L18 5v14l-8.5-7Z"/></svg>
+                  </button>
+                  <button type="button" class="home-play-toggle" id="home-play-button" aria-label="Pause">
+                    <svg id="home-play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7V5Zm6 0h4v14h-4V5Z"/></svg>
+                  </button>
+                  <button type="button" id="home-next-button" aria-label="Next track">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 5h2v14h-2V5ZM6 19V5l8.5 7L6 19Z"/></svg>
+                  </button>
+                </div>
+                <div class="time-row">
+                  <span id="home-elapsed">0:00</span>
+                  <div class="progress-track"><div class="progress-fill static-progress" id="home-progress-fill"></div></div>
+                  <span id="home-duration">0:00</span>
+                </div>
+              </section>
+              <div class="volume-rail" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4Zm12.5 8.2-1.4-1.4a5.5 5.5 0 0 0 0-7.6l1.4-1.4a7.5 7.5 0 0 1 0 10.4Z"/></svg>
+                <span></span>
+              </div>
+            </footer>
+          </div>
+        </div>
+
+        <div class="tab-view spotify-view" id="now-view">
+          <div class="spotify-chrome" aria-label="Spotify style player">
+            <aside class="library-rail" aria-label="Your Library">
+              <div class="spotify-logo" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm4.58 14.42a.75.75 0 0 1-1.03.25c-2.82-1.73-6.37-2.12-10.55-1.16a.75.75 0 0 1-.34-1.46c4.58-1.04 8.51-.58 11.67 1.36.35.21.46.67.25 1.01Zm1.38-3.06a.9.9 0 0 1-1.24.3c-3.23-1.98-8.15-2.55-11.96-1.39a.9.9 0 1 1-.52-1.72c4.33-1.31 9.74-.68 13.42 1.58.42.26.55.81.3 1.23Zm.12-3.19c-3.87-2.3-10.25-2.51-13.95-1.39a1.08 1.08 0 1 1-.63-2.07c4.25-1.29 11.26-1.04 15.68 1.58a1.08 1.08 0 1 1-1.1 1.88Z"/></svg>
+              </div>
+              <div class="library-header">
+                <h2>Your Library</h2>
+                <button type="button">Create</button>
+              </div>
+              <section class="library-promo import-card">
+                <strong>Import your music from other apps</strong>
+                <span>Bring your playlists, songs and artists.</span>
+                <button type="button">Import library</button>
+              </section>
+              <section class="library-promo">
+                <strong>Create your first playlist</strong>
+                <span>It is easy, we will help you</span>
+                <button type="button">Create playlist</button>
+              </section>
+              <section class="library-promo">
+                <strong>Let us find some podcasts to follow</strong>
+                <span>We will keep you updated on new episodes</span>
+                <button type="button">Browse podcasts</button>
+              </section>
+            </aside>
+
+            <section class="spotify-main" aria-label="Album now playing">
+              <div class="spotify-nav">
+                <button class="home-button" data-tab="home" type="button" aria-label="Home">
+                  <svg viewBox="0 0 24 24"><path d="m12 3 9 8h-3v9h-5v-6h-2v6H6v-9H3l9-8Z"/></svg>
+                </button>
+                <form class="search-pill" id="search-form" role="search">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 19.6-5.3-5.3a7.4 7.4 0 1 0-1.4 1.4l5.3 5.3 1.4-1.4ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"/></svg>
+                  <input id="search-input" type="search" autocomplete="off" placeholder="Search songs, patterns, or themes" aria-label="Search songs, patterns, or themes" />
+                  <button type="submit">Ask Copilot</button>
+                </form>
+                <button class="premium-button" type="button">Premium</button>
+                <nav class="tabs" aria-label="Primary">
+                  <button class="tab active" data-tab="now" type="button">Now</button>
+                  <button class="tab" data-tab="discovery" type="button">Copilot</button>
+                </nav>
+              </div>
+
+              <article class="track-card" id="track-card">
+                <button class="discovery-badge hidden" id="discovery-badge" type="button" aria-expanded="false">
+                  <span id="badge-reason">New sound — matches your evening plays</span>
+                </button>
+                <div class="art-wrap">
+                  <img id="album-art" alt="" />
+                  <div class="art-glow" aria-hidden="true"></div>
+                </div>
+                <div class="track-meta">
+                  <p class="queue-label" id="queue-label">Main queue</p>
+                  <h2 id="track-title">Loading</h2>
+                  <p><span id="track-artist">spotify-ai</span> • 2026 • AI queue</p>
+                </div>
+              </article>
+
+              <section class="album-actions" aria-label="Playback controls">
+                <button class="play-button" id="play-button" type="button" aria-label="Pause">
+                  <svg id="play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7V5Zm6 0h4v14h-4V5Z"/></svg>
+                </button>
+                <button class="icon-button" id="previous-button" type="button" aria-label="Previous track">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h2v14H6V5Zm3.5 7L18 5v14l-8.5-7Z"/></svg>
+                </button>
+                <button class="icon-button" id="next-button" type="button" aria-label="Next track">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 5h2v14h-2V5ZM6 19V5l8.5 7L6 19Z"/></svg>
+                </button>
+                <button class="icon-button" type="button" aria-label="Save track">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5Z"/></svg>
+                </button>
+                <span id="sdk-status">Spotify SDK ready for auth</span>
+              </section>
+
+              <section class="queue-strip" aria-label="Upcoming queue">
+                <div class="section-heading">
+                  <span>#</span>
+                  <h3>Title</h3>
+                  <span>Duration</span>
+                </div>
+                <div class="queue-list" id="queue-list"></div>
+              </section>
+            </section>
+
+            <aside class="context-rail" aria-label="Now playing context">
+              <div class="context-art">
+                <div class="context-art-fill"></div>
+                <h2 id="context-title">spotify-ai</h2>
+                <p id="context-artist">AI-powered queue</p>
+              </div>
+              <section class="context-card">
+                <h3>MusicBrainz Metadata</h3>
+                <p id="metadata-summary">Looking up recording metadata...</p>
+                <div class="metadata-pills" id="metadata-pills"></div>
+              </section>
+            </aside>
+
+            <footer class="bottom-player" aria-label="Current playback">
+              <div class="mini-track">
+                <img id="mini-art" alt="" />
+                <div>
+                  <strong id="mini-title">Loading</strong>
+                  <span id="mini-artist">spotify-ai</span>
+                </div>
+              </div>
+              <section class="timeline" aria-label="Playback progress">
+                <div class="time-row">
+                  <span id="elapsed">0:00</span>
+                  <div class="progress-track">
+                    <div class="progress-fill" id="progress-fill"></div>
+                  </div>
+                  <span id="duration">0:00</span>
+                </div>
+              </section>
+              <div class="volume-rail" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4Zm12.5 8.2-1.4-1.4a5.5 5.5 0 0 0 0-7.6l1.4-1.4a7.5 7.5 0 0 1 0 10.4Z"/></svg>
+                <span></span>
+              </div>
+            </footer>
+          </div>
+        </div>
+
+        <div class="tab-view" id="discovery-view">
+          <div class="copilot-dashboard" aria-label="AI Discovery Copilot">
+            <aside class="copilot-sidebar" aria-label="Copilot navigation">
+              <div class="copilot-brand">
+                <span aria-hidden="true"></span>
+                <strong>Discover<br />Copilot</strong>
+              </div>
+              <nav class="copilot-menu" aria-label="Copilot sections">
+                <button class="active" data-tab="home" type="button">
+                  <svg viewBox="0 0 24 24"><path d="m12 3 9 8h-3v9h-5v-6h-2v6H6v-9H3l9-8Z"/></svg>
+                  Home
+                </button>
+                <button type="button"><svg viewBox="0 0 24 24"><path d="M11 2h2v4h-2V2Zm0 16h2v4h-2v-4ZM2 11h4v2H2v-2Zm16 0h4v2h-4v-2ZM5.6 4.2 8.4 7 7 8.4 4.2 5.6l1.4-1.4Zm11 11 2.8 2.8-1.4 1.4-2.8-2.8 1.4-1.4Zm2.8-9.6L16.6 8.4 15.2 7 18 4.2l1.4 1.4ZM8.4 16.6l-2.8 2.8-1.4-1.4L7 15.2l1.4 1.4Z"/></svg>Discovery</button>
+                <button type="button"><svg viewBox="0 0 24 24"><path d="M13 3a9 9 0 1 0 8.95 10H20a7 7 0 1 1-2.05-4.95L15 11h7V4l-2.62 2.62A8.97 8.97 0 0 0 13 3Zm-1 5h2v5h-5v-2h3V8Z"/></svg>History</button>
+                <button type="button"><svg viewBox="0 0 24 24"><path d="M12 21.35 10.55 20.03C5.4 15.36 2 12.27 2 8.5A5.5 5.5 0 0 1 7.5 3c1.74 0 3.41.81 4.5 2.09A5.98 5.98 0 0 1 16.5 3 5.5 5.5 0 0 1 22 8.5c0 3.77-3.4 6.86-8.55 11.53L12 21.35Z"/></svg>Saved</button>
+                <button type="button"><svg viewBox="0 0 24 24"><path d="M4 6h10v2H4V6Zm0 5h14v2H4v-2Zm0 5h8v2H4v-2Zm15.5-10A2.5 2.5 0 1 1 17 8.5 2.5 2.5 0 0 1 19.5 6Zm0 10A2.5 2.5 0 1 1 17 18.5a2.5 2.5 0 0 1 2.5-2.5Z"/></svg>Playlists</button>
+                <button type="button"><svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.42 0-8 2.24-8 5v2h16v-2c0-2.76-3.58-5-8-5Z"/></svg>Profile</button>
+              </nav>
+              <div class="copilot-now">
+                <div class="copilot-now-art"></div>
+                <div>
+                  <span>Listening Now</span>
+                  <strong>Nothing yet</strong>
+                  <p>Start from Home search</p>
+                </div>
+                <div class="copilot-mini-bars" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+              </div>
+            </aside>
+
+            <main class="copilot-main">
+              <section class="copilot-hero" aria-label="spotify-ai architecture">
+                <div>
+                  <h2>AI Discovery Copilot</h2>
+                  <p>I turn your listening context into personalized discovery. Here are your next best songs.</p>
+                </div>
+                <span class="profile-meter hidden"><strong id="comfort-score">0</strong><span id="profile-label">Not started</span></span>
+              </section>
+
+              <section class="copilot-reason-card">
+                <div class="reason-spark" aria-hidden="true">✦</div>
+                <p><strong>No discovery context yet.</strong>Search from Home to build recommendations and context signals.</p>
+                <div class="reason-chip"><span>☾</span><strong>Time</strong><small>0</small></div>
+                <div class="reason-chip"><span>◎</span><strong>Activity</strong><small>0</small></div>
+                <div class="reason-chip"><span>◠</span><strong>Mode</strong><small>0</small></div>
+              </section>
+
+              <section class="search-results-panel" id="search-results-panel" aria-label="Copilot search suggestions">
+                <div class="section-heading">
+                  <h3 id="search-results-title">Search-driven Suggestions</h3>
+                  <span id="search-results-status">Try a song, pattern, or theme from Home</span>
+                </div>
+                <div class="suggestion-grid" id="suggestion-grid"></div>
+                <div class="suggestion-pagination">
+                  <button type="button" id="load-more-suggestions" class="load-more-button">View more suggestions</button>
+                </div>
+              </section>
+            </main>
+
+            <aside class="copilot-right-rail" aria-label="Discovery insights">
+              <section class="dna-card">
+                <h3>Your Discovery DNA</h3>
+                <div class="dna-row"><span>✣</span><strong>Explorer<small>Awaiting search</small></strong><meter min="0" max="100" value="0"></meter><em>0%</em></div>
+                <div class="dna-row"><span>◴</span><strong>Comfort<small>Awaiting search</small></strong><meter min="0" max="100" value="0"></meter><em>0%</em></div>
+                <div class="dna-row"><span>♬</span><strong>Trend Chaser<small>Awaiting search</small></strong><meter min="0" max="100" value="0"></meter><em>0%</em></div>
+                <div class="dna-row"><span>✦</span><strong>Genre Hopper<small>Awaiting search</small></strong><meter min="0" max="100" value="0"></meter><em>0%</em></div>
+                <p><strong>Not started</strong>Search to build your discovery profile.</p>
+              </section>
+
+              <section class="journey-card history-panel" aria-label="Discovery history">
+                <div class="section-heading">
+                  <h3>Your Discovery Journey</h3>
+                  <span id="history-count">0 tracks</span>
+                </div>
+                <div class="journey-map" id="journey-map">
+                  <div class="journey-empty">No journey yet. Search first to create a discovery path.</div>
+                </div>
+                <div class="history-list" id="history-list"></div>
+              </section>
+
+              <section class="progress-card">
+                <h3>Today's Discovery Progress</h3>
+                <div>
+                  <div class="gauge progress-gauge" style="--score: 0" id="progress-gauge"><div class="gauge-inner"><strong id="progress-score">0%</strong></div></div>
+                  <p><strong id="progress-title">No progress yet.</strong><span id="progress-copy">Search to start discovering.</span></p>
+                </div>
+                <small>Daily target: 85%</small>
+              </section>
+            </aside>
+
+            <footer class="copilot-tip"><strong>Copilot Tip</strong><span>Want even better picks? Save the songs you love and skip the ones you don't.</span><button type="button">Got it!</button></footer>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div class="entry-dialog" id="entry-dialog" role="dialog" aria-modal="true" aria-label="spotify-ai login">
+      <form class="entry-card" id="entry-form">
+        <p class="eyebrow">spotify-ai</p>
+        <input id="entry-username" type="text" autocomplete="name" maxlength="24" placeholder="Enter username" aria-label="Username" />
+        <button type="submit">Continue</button>
+      </form>
+    </div>
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "spotify-ai",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node dev-server.mjs",
+    "check": "node --check lib/api-adapter.js && node --check api/part1-insights.js && node --check api/decide.js && node --check api/feedback.js && node --check api/musicbrainz.js && node --check api/search.js && node --check dev-server.mjs && node --check public/app.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
